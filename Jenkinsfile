@@ -10,9 +10,10 @@ node {
                 branch: 'main'
          }
         
-          stage (‘package stage’) {
-            sh label: '', script: 'mvn clean install'
-                }
+         stage('Build'){
+        sh "mvn clean install"
+    }
+
           stage('Build docker') {
                  dockerImage = docker.build(dockerImageTag)
           }
