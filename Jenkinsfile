@@ -18,7 +18,7 @@ node {
                     // Stop existing Container
                   sh 'docker rm docker_container -f'
                  // Start database container here
-                 sh "docker run -d --name docker_container dockerImageTag"
+                 sh "docker run -d --name docker_container -p 8082:8082 dockerImageTag"
           }
           stage('Push image') {
             environment {
